@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	
-	root 'home#index'
+	root 'sessions#home'
 	get '/signup' => 'user#new'
 	get '/login' => 'sessions#new'
 	post '/login' => 'session#create'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :games
   resources :ratings
   resources :platform
-  
+  resources :sessions
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
