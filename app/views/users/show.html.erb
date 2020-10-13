@@ -1,9 +1,0 @@
-<%= render "devise/shared/links" %>
-<h1>Welcome to <%= @user.username%>'s homepage! </h1>
-
-<h3>Here are the Games you've recently reviewed by <%=@user.username%>:</h3>
-<ul>
-  <% @user.game_ratings.each do |ic|%>
-  <li> <%= link_to ic.flavor_and_brand, ice_cream_path(ic)%> </li>
-  <% end %>
-</ul>
