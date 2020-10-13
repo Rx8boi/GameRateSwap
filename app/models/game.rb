@@ -3,4 +3,10 @@ class Game < ApplicationRecord
 	belongs_to :user
 	has_many :ratings
 	has_many :users, through: :ratings
+	has_one_attached :image
+
+	validates :title, presence: true
+	validate :not_a_duplicate
+
+	
 end
