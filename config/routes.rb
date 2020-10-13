@@ -2,13 +2,6 @@ Rails.application.routes.draw do
 	 devise_for :users
 	root 'home#index'
 
-  get '/sessions/user' => 'user_session_path'
-  post '/sessions/user' => 'user_session_path'
-	get '/signup' => 'users#new'
-	get '/login' => 'sessions#new'
-	post '/login' => 'session#home'
-  get '/logout' => 'sessions#destroy'
-
  
   resources :users
   resources :games
