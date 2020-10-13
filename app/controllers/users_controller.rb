@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		if @user.save
 		#login the user
 		session[:user_id] = @user.user_id
-		redirect_to :home
+		redirect_to games_path
 		else
 			render :signup
 		end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit( :email, :encrypted_password)
+		params.require(:user).permit(:email, :encrypted_password)
 	end
 
 end

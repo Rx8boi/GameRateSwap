@@ -1,0 +1,18 @@
+<h1>All the Pets!</h1>
+
+<%= form_tag("/pets", method: "get") do %>
+  <%= label_tag(:age, "All pets above age:") %>
+  <%= number_field_tag(:age) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<h3><%= @dogs.load.size %> Dogs:</h3>
+<%= render 'pets', pets: @dogs%>
+
+
+<h3><%= @cats.load.size %> Cats:</h3>
+<%= render 'pets', pets: @cats%>
+
+
+<h3><%= @fish.load.size %> Fish:</h3>
+<%= render 'pets', pets: @fish%>
