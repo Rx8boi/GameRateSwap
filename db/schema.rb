@@ -14,12 +14,13 @@ ActiveRecord::Schema.define(version: 2020_10_11_022940) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
+    t.string "description"
+    t.integer "platform_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
+    t.index ["platform_id"], name: "index_games_on_platform_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -31,10 +32,13 @@ ActiveRecord::Schema.define(version: 2020_10_11_022940) do
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
     t.string "difficulty"
-    t.integer "game_id"
+    t.text "review"
     t.integer "user_id"
+    t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_ratings_on_game_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +54,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_022940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "platforms"
+  add_foreign_key "games", "users"
+  add_foreign_key "ratings", "games"
+  add_foreign_key "ratings", "users"
 end
