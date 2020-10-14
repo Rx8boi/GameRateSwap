@@ -18,6 +18,7 @@ class GamesController < ApplicationController
 	end
 
 	def index
+		@game = Game.last
 		@games = Game.all
 	end
 

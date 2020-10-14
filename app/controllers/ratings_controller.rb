@@ -6,7 +6,8 @@ class RatingsController < ApplicationController
 	end
 
 	def create
-		@rating = Rating.new(review_params)
+
+		@rating = current_user.ratings.build(rating_params)
 		if @rating.save
 			redirect_to rating_path(@rating)
 		else
@@ -15,9 +16,16 @@ class RatingsController < ApplicationController
 	end
 
 	def show
+		@rating = Rating.find_by_id(params[:id])
 	end
 
-	def index
+	def index #checking for nested or not nested
+		if @game = Game.find_by_id(params[:game_id])
+			@ratings = @game.ratings
+			#instead of using where statement to check valid game ID first
+		else
+			@ratings = Rating.all
+		end
 	end
 
 	private
