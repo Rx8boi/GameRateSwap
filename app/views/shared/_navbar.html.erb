@@ -15,6 +15,25 @@
       </li>
 
       <li class="nav-item active">
+        <li class="nav-item">
+          <%= link_to "Games", games_path, class: 'nav-link' %>
+        </li>
+      </li>
+
+      <li class="nav-item active">
+        <li class="nav-item">
+          <%= link_to "Ratings", ratings_path, class: 'nav-link' %>
+        </li>
+      </li>
+
+            <li class="nav-item active">
+        <li class="nav-item">
+          <%= link_to "Platforms", platforms_path, class: 'nav-link' %>
+        </li>
+      </li>
+
+
+      <li class="nav-item active">
       <li class="nav-item">
          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
       </li>

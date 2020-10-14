@@ -1,1 +1,11 @@
-<h1>Rating Show page</h1>
+<h1>Rating for: <%=@rating.game.title%><%= @rating.game.platform.console%></h1>
+
+	<li><%= @rating.game.description %></li>
+	<br></br>
+
+<h2>Played on: <%=@rating.difficulty%></h2>
+
+<ol><%=@rating.stars%>/5 stars</ol>
+<ol>Playthrough Review: <%=@rating.review%></ol>
+
+<ol><%= button_to "Edit Rating", edit_rating_path :method => "get" %></ol>

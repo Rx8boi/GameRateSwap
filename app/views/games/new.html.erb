@@ -16,11 +16,10 @@
 
 Select a Platform from the current generation
 	<div>
- 	<%= f.collection_select :platform_id, Platform.all, :id, :console %>
- 	</div> <br></br>
+ 	<%= f.collection_select :platform_id, Platform.take(7).each, :id, :console %>
+ 	</div> 
 
  	Or add an older Platform:
-
  	<div>
  		<%= f.fields_for :platform do |p| %>
  		<%= p.label :console %>

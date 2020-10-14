@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @ratings = Rating.all
     if user_signed_in?
     @user = User.find_by_id(params[:id])
     else
