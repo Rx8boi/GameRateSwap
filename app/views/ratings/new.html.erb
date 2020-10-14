@@ -2,6 +2,8 @@
 on <%= @rating.game.platform.console %>
 <br></br>
 
+<%= render '/layouts/errors', locals: {object: @rating} %>
+
 <%= form_for @rating do |f|%>
   <div>
     <%= f.label :difficulty%>
