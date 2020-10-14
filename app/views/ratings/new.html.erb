@@ -2,7 +2,7 @@
 on <%= @rating.game.platform.console %>
 <br></br>
 
-<%= render '/layouts/errors', locals: {object: @rating} %>
+<%= render '/layouts/errors', object: @rating, as: 'object' %>
 
 <%= form_for @rating do |f|%>
   <div>

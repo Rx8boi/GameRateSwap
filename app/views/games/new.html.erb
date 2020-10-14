@@ -1,6 +1,6 @@
 <h1>Create a Game!</h1>
 
-<%= render '/layouts/errors', locals: {object: @game} %>
+<%= render '/layouts/errors', object: @game, as: 'object' %>
 
 <%= form_for(@game) do |f| %>
     
