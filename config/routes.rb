@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
  
   resources :users
-  resources :games
+  resources :games do
+    resources :ratings, only: [:new, :index]
+  end
   resources :ratings
-  resources :platform
+  resources :platforms
 
  
 

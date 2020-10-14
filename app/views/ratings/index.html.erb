@@ -1,6 +1,6 @@
-<h1>Here are the reviews for <%= @vet.name%></h1>
+<h1>Here are the reviews for <%= User.last %></h1>
 
-<% if @reviews.exists? %>
+<% if @Rating.exists? %>
 <h3>Average Rating: <%= @reviews.average_rating%></h3>
 <% end %>
 

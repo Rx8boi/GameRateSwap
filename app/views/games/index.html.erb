@@ -1,0 +1,8 @@
+<h1> Here are all the Games </h1>
+<ol>
+	<% @games.each do |game| %>
+	<h2><li><%= game.title %></li></h2>
+	<%= game.description %>
+	<br></br>
+	<%end%>
+</ol>

@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
 	def create
 		@game = Game.new(game_params)
-		@game.user_id = session[:id]
+		@game.user_id = User.last.id
 		if @game.save
 			redirect_to game_path(@game)
 		else
@@ -17,6 +17,13 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def index
+		@games = Game.all
+	end
+
+	def show
+		
+	end
 
 	private
 

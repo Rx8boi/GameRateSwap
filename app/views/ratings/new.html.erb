@@ -1,16 +1,29 @@
-<h1>Write your Review for <%= @review.vet.name %></h1>
+<h1>Write your Rating for <%=@game.title %></h1>
+on <%= @game.platform.console %>
+<br></br>
 
-<%= form_for [@vet, @review] do |f|%>
-  <%= f.hidden_field :vet_id%>
+<%= form_for @rating do |f|%>
   <div>
-    <%= f.label :content%>
-    <%= f.text_area :content%>
+    <%= f.label :difficulty%>
+    <%= f.text_field :difficulty, size: "4x2"%>
   </div>
 
   <div>
-    <%= f.label :rating, "Rating from 1-10"%>
-    <%= f.number_field :rating, min: 0, max: 10%>
+    <%= f.label :stars, "Rating from 1-5"%>
+    <%= f.number_field :stars, min: 0, max: 5%>
   </div>
-  <br>
+<div></div>
+
+  <div>
+    <%= f.label :review%>
+  </div>
+
+    <div>
+    <%= f.text_area :review, size: "20x4"%>
+  </div>
+
+    <%= f.hidden_field :game_id%>
+    
+    <br>
   <%= f.submit %>
 <% end %>
