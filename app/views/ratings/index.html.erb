@@ -1,7 +1,7 @@
 <h1>Game Ratings:</h1>
 
 <ol><% @ratings.each do |rating| %>
-<%= rating.game.title %>
+<%= link_to rating.game.title, rating_path(rating)%>
 (<%= rating.difficulty %>)
 <br></br>
 <%end%>

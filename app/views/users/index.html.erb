@@ -4,10 +4,10 @@
 <h3>Here are the Games you've recently reviewed </h3>
 
 
-	<% @ratings.each do |game| %>
-	<li><%= link_to game.game.title, game_path(game)%></li>
+	<% @games.take(10).each do |game| %>
+	<li><%= link_to game.title, game_ratings_path(game)%></li>
 	<%end%>
 	
 <Br></Br>
 <ol><%= button_to "Add a Game", new_game_path, :method => "get" %></ol>
-
+<ol><%= button_to "View Games", games_path, :method => "get" %></ol>
