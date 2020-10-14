@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    has_many :games
-    has_many :ratings, through: :games
+	has_many :ratings
+	has_many :rated_games, through: :ratings, source: :game
+
+	#but also user has created many games to the list
+	has_many :games 
 end

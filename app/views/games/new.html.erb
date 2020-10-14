@@ -1,4 +1,33 @@
 <h1>Create a Game!</h1>
 
- <%= render 'form' %>
+
+
+<%= form_for(@game) do |f| %>
+    
+  <div>
+    <%= f.label :title %><br />
+    <%= f.text_field :title  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+Select a Platform from the current generation
+	<div>
+ 	<%= f.collection_select :platform_id, Platform.all, :id, :console %>
+ 	</div> <br></br>
+
+ 	Or add an older Platform:
+
+ 	<div>
+ 		<%= f.fields_for :platform do |p| %>
+ 		<%= p.label :console %>
+ 		<%= p.text_field :console %>
+ 		<% end %>
+ 	</div>
+<div>
+ 	<%= f.submit "Create" %>
+</div> 	<% end %>
 

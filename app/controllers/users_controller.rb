@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 #method for loading signup form
   def new
-
+  	@game = Game.new
   end
 
   def create
