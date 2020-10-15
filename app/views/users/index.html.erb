@@ -9,5 +9,10 @@
 	<%end%>
 	
 <Br></Br>
-<ol><%= button_to "Add a Game", new_game_path, :method => "get" %></ol>
-<ol><%= button_to "View Games", games_path, :method => "get" %></ol>
+
+<ol>
+<div class="center">
+<button><%= link_to "Add a Game", new_game_path%></button>
+<button><%= link_to "Rate a Game", new_rating_path%></button>
+<button><%= link_to "View Games", games_path%></button>
+</div></ol>
