@@ -6,4 +6,5 @@
 <div class="center">
 <button><%= link_to "Edit Game", edit_game_path%></button>
 <button><%= link_to "Rate Game", new_rating_path%></button>
+<button><%=link_to "Delete",game_path(@game.id), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%></button>
 </div></ol>

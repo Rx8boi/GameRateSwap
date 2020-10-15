@@ -37,6 +37,14 @@ before_action :set_game, only: [:edit, :update]
 			redirect_to game_path
 	end
 
+	def destroy
+		@game_delete = Game.find_by_id(params[:id])
+		if @game_delete.present?
+			@game_delete.destroy
+		end
+		redirect_to games_path
+	end
+
 	private
 
 	def game_params
