@@ -3,7 +3,7 @@
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2, :facebook, :github]
+         :omniauthable, omniauth_providers: [:facebook, :github]
 
 	has_many :ratings
 	has_many :rated_games, through: :ratings, source: :game
