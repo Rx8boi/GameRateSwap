@@ -15,7 +15,9 @@ class Game < ApplicationRecord
 
 
 	def not_duplicate
-		if Game.find_by(flavor: flavor, brand_id: brand_id)
+		if Game.find_by(title: title, platform_id: platform_id)
+			errors.add(:title, "has already been added for that system")
+		end
 	end
 #game needs to be unique when added
 
