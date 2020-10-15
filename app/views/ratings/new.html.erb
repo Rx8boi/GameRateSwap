@@ -1,10 +1,23 @@
+
+<% if params[:game_id]%>
 <h1>Write your Rating for <%=@rating.game.title %></h1>
 on <%= @rating.game.platform.console %>
 <br></br>
-
+<% else %>
+<h1> Create a Rating </h1>
+<% end %>
 <%= render '/layouts/errors', object: @rating, as: 'object' %>
 
 <%= form_for @rating do |f|%>
+  <% if params[:game_id] %>
+     <%= f.hidden_field :game_id%>
+     <%else%>
+     <div>
+      <%=f.label :game_id, "Choose a game" %>
+      <%=f.collection_select :game_id, Game.all, :id, :title_in_database, include_blank: true %>
+    </div>
+    <%end%>
+
   <div>
     <%= f.label :difficulty%>
     <%= f.text_field :difficulty, size: "4x2"%>
@@ -24,7 +37,7 @@ on <%= @rating.game.platform.console %>
     <%= f.text_area :review, size: "20x4"%>
   </div>
 
-    <%= f.hidden_field :game_id%>
+ 
     
     <br>
   <%= f.submit %>

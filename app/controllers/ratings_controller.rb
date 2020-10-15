@@ -1,8 +1,11 @@
 class RatingsController < ApplicationController
 
 	def new
-		@game = Game.find_by_id(params[:game_id])
-		@rating = @game.ratings.build
+		if @game = Game.find_by_id(params[:game_id])
+			@rating = @game.ratings.build
+		else
+			@rating = Rating.new
+		end
 	end
 
 	def create
