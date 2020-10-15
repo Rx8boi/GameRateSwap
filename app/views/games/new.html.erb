@@ -16,7 +16,7 @@
 
 Select a Platform from the current generation
 	<div>
- 	<%= f.collection_select :platform_id, Platform.take(7).each, :id, :console %>
+ 	<%= f.collection_select :platform_id, Platform.take(7).each, :id, :console, include_blank: true%>
  	</div> 
 
  	Or add an older Platform:

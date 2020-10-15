@@ -14,7 +14,7 @@ on <%= @rating.game.platform.console %>
      <%else%>
      <div>
       <%=f.label :game_id, "Choose a game" %>
-      <%=f.collection_select :game_id, Game.all, :id, :title_in_database, include_blank: true %>
+      <%=f.collection_select :game_id, Game.all, :id, :title_and_platform, include_blank: true %>
     </div>
     <%end%>
 

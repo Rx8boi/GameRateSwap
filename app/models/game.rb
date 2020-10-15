@@ -13,6 +13,10 @@ class Game < ApplicationRecord
 		@game = Game.new
 	end
 
+	def title_and_platform
+		"#{title} - #{platform.console}"
+	end
+
 end
 	#def not_duplicate
 	#	if Game.find_by(title: title, platform_id: platform_id)

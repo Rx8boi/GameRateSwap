@@ -1,5 +1,7 @@
 <h1><%=@game.title%></h1><%=@game.platform.console%>
 
 	<li><%= @game.description %></li>
-	<%= link_to "Rate this game", new_game_rating_path(@game)%>
-	<br></br>
+	
+<br>
+	<ol><button><%= link_to "Rate Game", new_rating_path%></button></ol>
+</br>
