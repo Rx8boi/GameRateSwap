@@ -1,5 +1,5 @@
-<h1>Create a Game!</h1>
-
+<h1 align="center">Create a Game!</h1>
+<div align="center">
 <%= render '/layouts/errors', object: @game, as: 'object' %>
 
 <%= form_for(@game) do |f| %>
@@ -14,19 +14,20 @@
     <%= f.text_field :description %>
   </div>
 
-Select a Platform from the current generation
+Select a Platform from the current list
 	<div>
  	<%= f.collection_select :platform_id, Platform.take(7).each, :id, :console, include_blank: true%>
  	</div> 
 
- 	Or add an older Platform:
+ 	Add another Platform:
  	<div>
  		<%= f.fields_for :platform do |p| %>
- 		<%= p.label :console %>
- 		<%= p.text_field :console %>
+ 		<%= p.text_field :console, placeholder: "   INPUT NEW CONSOLE" %>
  		<% end %>
  	</div>
+ 	<br></br>
 <div>
  	<%= f.submit "Create" %>
 </div> 	<% end %>
 
+</div>

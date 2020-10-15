@@ -3,6 +3,8 @@ class GamesController < ApplicationController
 	#before_action :authenticate_user!
 before_action :set_game, only: [:edit, :update]
 
+	
+
 	def new
 		@game = Game.new
 		@game.build_platform
@@ -19,10 +21,19 @@ before_action :set_game, only: [:edit, :update]
 		end
 	end
 
-	def index
-		@game = Game.last
-		@games = Game.order_by_rating
+def index
+	if params[:user_id] && @user = User.find_by_id(params[:user_id])
+		@games = User.last.games
+	else
+		@error = "That user doesn't exist" if params[:user_id]
+		@games = User.last.games
 	end
+	if params[:search]
+		@games = @games.search(params[:search].downcase)
+	end
+end
+
+	###########
 
 	def show
 		@game = Game.find_by_id(params[:id])

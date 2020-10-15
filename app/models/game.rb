@@ -10,6 +10,7 @@ class Game < ApplicationRecord
 	validates :title, uniqueness: {scope: :platform_id, message: "- You have added this game for this system already"}
 	scope :order_by_rating, -> {left_joins(:ratings).group(:id).order('avg(stars) desc')}
 
+require 'pry'
 	def new
 		@game = Game.new
 	end
@@ -25,6 +26,10 @@ class Game < ApplicationRecord
 
   def self.alpha
   	order(:title, :platform_id)
+  end
+
+  def self.search(params)
+  	where("LOWER(title) LIKE ?", "%#{params}%")
   end
 
 end

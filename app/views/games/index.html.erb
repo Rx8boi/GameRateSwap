@@ -1,7 +1,12 @@
-<h1> Here are all the Games </h1>
-
-
-	<% @games.each do |game| %>
+<h1 align="center"> Games Index </h1>
+<div align="center"> Select one or <%= form_tag(games_path, method: :get) do %>
+<%= text_field_tag(:search, params[:search], placeholder: "Search by Title") %>
+<%= submit_tag "Submit"%>
+<%end%></div>
+<br></br>
+		
+<div align="center">
+		<% @games.each do |game| %>
 	<% if game.user_id = User.last %>
 	<h2><li><%= link_to game.title, game_path(game) %></li></h2>
 	<%= game.description %>
@@ -9,11 +14,11 @@
 	<%end%>
 	<br></br>
 	<%end%>
-
-
-<ol>
-<div class="center">
+</div>
+ 
+<div align="center">
 <button><%= link_to "Add a Game", new_game_path%></button>
 <button><%= link_to "Rate a Game", new_rating_path%></button>
-</div></ol>
+<button><%= link_to "View All", games_path%></button>
+</div>
 
