@@ -24,6 +24,14 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise', '~> 4.2'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+gem 'dotenv-rails'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
