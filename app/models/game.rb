@@ -8,6 +8,7 @@ class Game < ApplicationRecord
 
 	validates :title, presence: true
 	validates :title, uniqueness: {scope: :platform_id, message: "- You have added this game for this system already"}
+	scope :order_by_rating, -> {left_joins(:ratings).group(:id).order('avg(stars) desc')}
 
 	def new
 		@game = Game.new
@@ -20,6 +21,10 @@ class Game < ApplicationRecord
   def platform_attributes=(attributes)
     self.platform = Platform.find_or_create_by(attributes) if !attributes['console'].empty?
     self.platform
+  end
+
+  def self.alpha
+  	order(:title, :platform_id)
   end
 
 end

@@ -2,6 +2,8 @@
 
 	<li><%= @game.description %></li>
 	
-<br>
-	<ol><button><%= link_to "Rate Game", new_rating_path%></button></ol>
-</br>
+<ol>
+<div class="center">
+<button><%= link_to "Edit Game", edit_game_path%></button>
+<button><%= link_to "Rate Game", new_rating_path%></button>
+</div></ol>
