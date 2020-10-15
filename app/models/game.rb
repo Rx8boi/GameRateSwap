@@ -17,6 +17,11 @@ class Game < ApplicationRecord
 		"#{title} - #{platform.console}"
 	end
 
+  def platform_attributes=(attributes)
+    self.platform = Platform.find_or_create_by(attributes) if !attributes['console'].empty?
+    self.platform
+  end
+
 end
 	#def not_duplicate
 	#	if Game.find_by(title: title, platform_id: platform_id)
