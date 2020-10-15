@@ -7,7 +7,7 @@ class Game < ApplicationRecord
 	accepts_nested_attributes_for :platform
 
 	validates :title, presence: true
-	validates :title, uniqueness: {scope: :platform_id, message: "You have added this game for this system already"}
+	validates :title, uniqueness: {scope: :platform_id, message: "- You have added this game for this system already"}
 
 	def new
 		@game = Game.new

@@ -1,6 +1,6 @@
 <h1> Here are all the Games </h1>
 
-<ol>
+
 	<% @games.each do |game| %>
 	<% if game.user_id = User.last %>
 	<h2><li><%= link_to game.title, game_path(game) %></li></h2>
@@ -9,7 +9,7 @@
 	<%end%>
 	<br></br>
 	<%end%>
-</ol>
+
 
 <ol>
 <div class="center">

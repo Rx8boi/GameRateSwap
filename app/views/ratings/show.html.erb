@@ -1,11 +1,18 @@
-<h1>Rating for: <%=@rating.game.title%><%= @rating.game.platform.console%></h1>
+<h1>Rating for: <%=@rating.game.title%></h1>
+<h2> On <%= @rating.game.platform.console%></h2>
 
+<div>
+	Description:
 	<li><%= @rating.game.description %></li>
 	<br></br>
-
+</div>
 <h2>Played on: <%=@rating.difficulty%></h2>
 
 <ol><%=@rating.stars%>/5 stars</ol>
 <ol>Playthrough Review: <%=@rating.review%></ol>
 
-<% button_to "Edit Rating" %>
+<ol>
+<div class="center">
+<button><%= link_to "Edit Rating", edit_rating_path%></button>
+<button><%= link_to "Delete Rating", new_rating_path%></button>
+</div></ol>
